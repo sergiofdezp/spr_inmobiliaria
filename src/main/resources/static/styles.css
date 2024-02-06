@@ -52,14 +52,22 @@ nav {
     color: var(--colorBrown) !important;
 }
 
-/* main styles */
-main {
-    min-height: calc(100vh - (var(--alturaHeader) + var(--alturaNav) + var(--alturaFooter)));
+#enum_vivienda {
+    background-color: var(--colorBrown);
+    color: var(--colorGrey);
+    border-radius: 50%;
 }
 
-/* footer styles */
-footer {
-    color: var(--colorGrey) !important;
-    height: var(--alturaFooter);
-    background-color: var(--colorBrown);
+/* botones */
+
+.btn {
+    color: var(--colorGrey);
+}
+
+.btn-edit {
+    background-color: var(--colorSage);
+}
+
+.btn-del {
+    background-color: var(--colorSage);
 }
