@@ -5,8 +5,6 @@ import org.springframework.stereotype.Service;
 
 import com.ipartek.model.Categoria;
 import com.ipartek.model.Vivienda;
-import com.ipartek.repository.CategoriaRepository;
-import com.ipartek.repository.ViviendaRepository;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.transaction.Transactional;
@@ -14,19 +12,24 @@ import jakarta.transaction.Transactional;
 @Service
 public class InicializarDatos {
 	@Autowired
-	private ViviendaRepository viviendaRepo;
+	private IViviendaService viviendaServ;
 	
 	@Autowired
-	private CategoriaRepository catRepo;
+	private ICategoriaService categoriaServ;
 	
 	@PostConstruct
 	@Transactional
 	public void cargarDatosBD(){
+		// añadir aqui las categorias
+		Categoria venta = new Categoria(1, "Venta");
+		categoriaServ.guardarCategoria(venta);
+		
+		Categoria alquiler = new Categoria(2, "Alquiler");
+		categoriaServ.guardarCategoria(alquiler);
+		
 		// añadir aqui las viviendas
-		
-		
-		// categorias
-		catRepo.save(new Categoria(1, "Venta"));
-		catRepo.save(new Categoria(2, "Alquiler"));
+		viviendaServ.insertarVivienda(new Vivienda(1, "Calle falsa 123", 123456, venta));
+		viviendaServ.insertarVivienda(new Vivienda(2, "Elm Street", 666666, venta));
+		viviendaServ.insertarVivienda(new Vivienda(3, "Sesame Street", 456789, alquiler));
 	}
 }
