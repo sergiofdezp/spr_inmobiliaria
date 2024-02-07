@@ -19,7 +19,11 @@
 
 	<div class="container">
 		<main>
-			<section>
+			<section th:if="${#lists.isEmpty(atr_lista_alquileres)}">
+				<p class="pt-4">Actualmente no hay viviendas en alquiler disponibles.</p>
+			</section>
+
+			<section th:unless="${#lists.isEmpty(atr_lista_alquileres)}">
 				<div class="row d-flex align-items-center pt-5">
 					<h2 class="col-3 pe-0">Todos los alquileres</h2>
 					<hr class="col-9 mb-0">
@@ -38,7 +42,8 @@
 								<h5 class="card-title" th:text="'Calle: ' + ${vivienda.calle}"></h5>
 								<p class="card-text" th:text="'Precio: ' + ${vivienda.precio} + '€'"></p>
 								<div class="row px-3">
-									<a href="#" class="btn btn-edit rounded-pill">EDITAR</a>
+									<a th:href="@{'/form_modificar_vivienda/' + ${vivienda.id}}"
+										class="btn btn-edit rounded-pill">EDITAR</a>
 								</div>
 							</div>
 						</div>
