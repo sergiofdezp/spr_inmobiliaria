@@ -20,7 +20,11 @@
     <div class="container">
         <main>
             <section>
-                <div class="row pt-4">
+                <div class="row d-flex align-items-center pt-5">
+                    <h2 class="col-3 pe-0">Todas las viviendas</h2>
+                    <hr class="col-9 mb-0">
+                </div>
+                <div class="row">
                     <div class="col-xs-1 col-sm-6 col-md-4 col-lg-4 col-xl-4 mt-4"
                         th:each="vivienda : ${atr_lista_viviendas}">
                         <div class="card">
