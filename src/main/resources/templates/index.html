@@ -19,6 +19,7 @@
 
     <div class="container">
         <main>
+            <!-- Todas las viviendas -->
             <section>
                 <div class="row d-flex align-items-center pt-5">
                     <h2 class="col-3 pe-0">Todas las viviendas</h2>
@@ -27,6 +28,60 @@
                 <div class="row">
                     <div class="col-xs-1 col-sm-6 col-md-4 col-lg-4 col-xl-4 mt-4"
                         th:each="vivienda : ${atr_lista_viviendas}">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between mb-3">
+                                    <p class="card-text mb-0"><small class="text-muted"
+                                            th:text="${vivienda.categoria.categoria}"></small></p>
+                                    <p id="enum_vivienda" class="d-flex justify-content-center col-1 card-text text-end"
+                                        th:text="${vivienda.id}"></p>
+                                </div>
+                                <h5 class="card-title" th:text="'Calle: ' + ${vivienda.calle}"></h5>
+                                <p class="card-text" th:text="'Precio: ' + ${vivienda.precio} + '€'"></p>
+                                <div class="row px-3">
+                                    <a href="#" class="btn btn-edit rounded-pill">EDITAR</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Ventas -->
+            <section>
+                <div class="row d-flex align-items-center pt-5">
+                    <h2 class="col-3 pe-0">Todas las ventas</h2>
+                    <hr class="col-9 mb-0">
+                </div>
+                <div class="row">
+                    <div class="col-xs-1 col-sm-6 col-md-4 col-lg-4 col-xl-4 mt-4"
+                        th:each="vivienda : ${atr_lista_ventas}">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between mb-3">
+                                    <p class="card-text mb-0"><small class="text-muted"
+                                            th:text="${vivienda.categoria.categoria}"></small></p>
+                                    <p id="enum_vivienda" class="d-flex justify-content-center col-1 card-text text-end"
+                                        th:text="${vivienda.id}"></p>
+                                </div>
+                                <h5 class="card-title" th:text="'Calle: ' + ${vivienda.calle}"></h5>
+                                <p class="card-text" th:text="'Precio: ' + ${vivienda.precio} + '€'"></p>
+                                <div class="row px-3">
+                                    <a href="#" class="btn btn-edit rounded-pill">EDITAR</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Alquileres -->
+            <section>
+                <div class="row d-flex align-items-center pt-5">
+                    <h2 class="col-3 pe-0">Todos los alquileres</h2>
+                    <hr class="col-9 mb-0">
+                </div>
+                <div class="row">
+                    <div class="col-xs-1 col-sm-6 col-md-4 col-lg-4 col-xl-4 mt-4"
+                        th:each="vivienda : ${atr_lista_alquileres}">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between mb-3">

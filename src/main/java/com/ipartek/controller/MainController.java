@@ -18,9 +18,12 @@ public class MainController {
 	@RequestMapping("/")
 	public String cargarHome(Model model) {
 		List<Vivienda> listaViviendas = viviendaRepo.findAll();		
-		model.addAttribute("atr_lista_viviendas", listaViviendas);
+		List<Vivienda> listaVentas = viviendaRepo.obtenerViviendasPorCateg(1);
+		List<Vivienda> listaAlquileres = viviendaRepo.obtenerViviendasPorCateg(2);
 		
-		// System.out.println(listaViviendas);
+		model.addAttribute("atr_lista_viviendas", listaViviendas);
+		model.addAttribute("atr_lista_ventas", listaVentas);
+		model.addAttribute("atr_lista_alquileres", listaAlquileres);
 		
 		return "index";
 	}
@@ -30,8 +33,6 @@ public class MainController {
 		List<Vivienda> listaAlquileres = viviendaRepo.obtenerViviendasPorCateg(2);
 		model.addAttribute("atr_lista_alquileres", listaAlquileres);
 		
-		System.out.println(listaAlquileres);
-		
 		return "alquileres";
 	}
 	
@@ -39,8 +40,6 @@ public class MainController {
 	public String cargarVentas(Model model) {
 		List<Vivienda> listaVentas = viviendaRepo.obtenerViviendasPorCateg(1);
 		model.addAttribute("atr_lista_ventas", listaVentas);
-		
-		System.out.println(listaVentas);
 		
 		return "ventas";
 	}
