@@ -68,6 +68,10 @@ nav {
     background-color: var(--colorSage);
 }
 
+.btn-edit:hover {
+    color: var(--colorBrown) !important;
+}
+
 .btn-del {
     background-color: var(--colorSage);
 }
