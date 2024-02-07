@@ -24,4 +24,14 @@ public class MainController {
 		
 		return "index";
 	}
+	
+	@RequestMapping("/alquileres")
+	public String cargarAlquileres(Model model) {
+		List<Vivienda> listaAlquileres = viviendaRepo.obtenerViviendasPorCateg(2);
+		model.addAttribute("atr_lista_alquileres", listaAlquileres);
+		
+		System.out.println(listaAlquileres);
+		
+		return "alquileres";
+	}
 }

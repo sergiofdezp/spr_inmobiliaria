@@ -16,7 +16,7 @@ public class ViviendaServiceImpl implements IViviendaService {
 
 	@Override
 	public List<Vivienda> obtenerTodasViviendasPorCategoria(int categ) {
-		// List<Vivienda> listaViviendas = viviendaRepo.find
+		List<Vivienda> listaViviendas = viviendaRepo.obtenerViviendasPorCateg(categ);
 		return null;
 	}
 
